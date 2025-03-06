@@ -66,7 +66,7 @@ const Main = () => {
     };
 
     return (
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className="flex flex-col min-h-screen relative">
             {/* Background Video */}
             <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover">
                 <source src="/videos/bubble-animation.mp4" type="video/mp4" />
@@ -112,7 +112,7 @@ const Main = () => {
                             <div className="absolute inset-0 transform rotate-45 border-2 border-[#a0a4ab] pointer-events-none transition-transform duration-700 group-hover:border-dotted group-hover:scale-110"></div>
                             <div className="absolute inset-0 transform rotate-45 border-2 border-[#a0a4ab] pointer-events-none transition-transform duration-700 scale-100 opacity-0 group-hover:opacity-100 group-hover:scale-150"></div>
                             <figure className="relative z-10">
-                                <MdPlayArrow className="" />
+                                <MdPlayArrow className="intro" />
                             </figure>
                         </div>
                     </Link>
@@ -143,12 +143,12 @@ const Main = () => {
                         </span>
                     </h1>
 
-                    <p className="absolute uppercase w-[316px] h-[72px] top-[802px] left-[32px] 
+                    <footer className="absolute bottom-0 uppercase w-[316px] h-[72px] top-[775px] left-[32px] 
                  text-gray font-[Roobert] text-[14px] 
                  leading-[24px] tracking-[0%] font-normal p-4">
                         Skinstric developed an A.I. that creates a highly-personalized routine
                         tailored to what your skin needs.
-                    </p>
+                    </footer>
 
                     {/* Mobile button */}
                     <div className="flex items-center justify-center gap-4 lg:hidden">

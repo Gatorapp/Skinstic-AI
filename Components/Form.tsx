@@ -9,12 +9,11 @@ const Form = () => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [phase, setPhase] = useState<"name" | "location">("name");
-  const [showProcess, setShowProcess] = useState(false);
   const [isFocused, setIsFocused] = useState(false); // State to track if input is focused
 
   useEffect(() => {
-    setShowProcess(name.trim() !== "");
-  }, [name]);
+    // Add any side effects or subscriptions here
+  }, []);
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
@@ -44,83 +43,76 @@ const Form = () => {
           <span className="absolute left-1/2 bottom-0 h-0.5 w-[350px] bg-black transform -translate-x-1/2 scale-x-0 origin-center group-focus-within:scale-x-100 transition-transform duration-200"></span>
         </div>
       </div>
-
-      {/* Navigation buttons */}
-      <div className="absolute bottom-9 flex justify-between w-[90vw] lg:w-[94vw]">
-        {/* Back Button */}
-        <div className="flex items-center justify-center gap-4">
-          {phase === "location" && (
-            <button onClick={() => setPhase("name")} className="relative flex items-center justify-center w-6 h-6 diamond-button" title="Back to Name">
-              <div className="diamond"></div>
-              <div className="diamond-hover"></div> {/* Second diamond on hover */}
-              <MdPlayArrow className="rotate-180 text-black text-lg z-10" />
-            </button>
-          )}
-          {phase === "name" && (
-            <Link href={"/"} className="relative flex items-center justify-center w-6 h-6 diamond-button">
-              <div className="diamond"></div>
-              <div className="diamond-hover"></div> {/* Second diamond on hover */}
-              <MdPlayArrow className="rotate-180 text-black text-lg z-10" />
-            </Link>
-          )}
-          <p className="text-xs uppercase font-bold opacity-60">Back</p>
-        </div>
-
-        {/* Next/Proceed Button Location */}
-        {name.trim() !== "" && phase === "name" && (
-          <div className="flex items-center gap-4">
-            <p className="text-xs uppercase font-bold opacity-60">Process</p>
-            <button
-              onClick={() => setPhase("location")}
-              className="relative flex items-center justify-center w-6 h-6 diamond-button"
-              title="Proceed to Location"
-            >
-              <div className="diamond"></div>
-              <div className="diamond-hover"></div> {/* Second diamond on hover */}
-              <MdPlayArrow className="text-black text-lg z-10" />
-            </button>
-          </div>
-        )}
-
-        {/* Next/Proceed Button Next Page */}
-        {location.trim() !== "" && phase === "location" && (
-          <div className="flex items-center gap-4">
-            <p className="text-xs uppercase font-bold opacity-60">Proceed</p>
-            <Link href={"/testing"} className="relative flex items-center justify-center w-6 h-6 diamond-button">
-              <div className="diamond"></div>
-              <div className="diamond-hover"></div> {/* Second diamond on hover */}
-              <MdPlayArrow className="text-black text-lg z-10" />
-            </Link>
-          </div>
-        )}
+{/* Navigation buttons */}
+<div className="absolute bottom-9 flex justify-between w-[90vw] lg:w-[94vw]">
+  {/* Back Button */}
+  <div className="flex items-center justify-center gap-4 relative group">
+    {phase === "location" && (
+      <div className="relative flex items-center justify-center">
+        <button 
+          onClick={() => setPhase("name")} 
+          className="flex items-center justify-center w-6 h-6 border-2 border-gray-900 transform rotate-45 hover:scale-110 transition-all" 
+          title="Back to Name"
+        >
+          <MdPlayArrow className="rotate-[135deg] text-black text-lg z-10" />
+        </button>
+        {/* Hover Diamond Box (Transparent) */}
+        <div className="absolute left-1/2 -translate-x-1/2 translate-y-0 hidden group-hover:block w-12 h-12 border-2 border-gray-900 transform rotate-45 bg-transparent z-0"></div>
       </div>
+    )}
+    {phase === "name" && (
+      <div className="relative flex items-center justify-center">
+        <Link 
+          href={'/'} 
+          className="flex items-center justify-center w-6 h-6 border-2 border-gray-900 transform rotate-45 hover:scale-110 transition-all"
+        >
+          <MdPlayArrow className="rotate-[135deg] text-black text-lg z-10" />
+        </Link>
+        {/* Hover Diamond Box (Transparent) */}
+        <div className="absolute left-1/2 -translate-x-1/2 translate-y-0 hidden group-hover:block w-12 h-12 border-2 border-gray-900 transform rotate-45 bg-transparent z-0"></div>
+      </div>
+    )}
+    <p className="text-xs uppercase font-bold opacity-60">Back</p>
+  </div>
 
-      <style jsx>{`
-        .diamond-button {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+  {/* Next/Proceed Button Location */}
+  {name.trim() !== "" && phase === "name" && (
+    <div className="flex items-center gap-4 relative group">
+      <p className="text-xs uppercase font-bold opacity-60">Process</p>
+      <div className="relative flex items-center justify-center">
+        <button
+          onClick={() => setPhase("location")}
+          className="flex items-center justify-center w-6 h-6 border-2 border-gray-900 transform rotate-45 hover:scale-110 transition-all"
+          title="Proceed to Location"
+        >
+          <MdPlayArrow className="rotate-[67.5deg] text-black text-lg z-10" />
+        </button>
+        {/* Hover Diamond Box (Transparent) */}
+        <div className="absolute left-1/2 -translate-x-1/2 translate-y-0 hidden group-hover:block w-12 h-12 border-2 border-gray-900 transform rotate-45 bg-transparent z-0"></div>
+      </div>
+    </div>
+  )}
 
-        .diamond, .diamond-hover {
-          position: absolute;
-          inset: 0;
-          transform: rotate(45deg);
-          border: 2px solid #a0a4ab;
-          transition: all 0.2s ease;
-        }
+  {/* Next/Proceed Button Next Page */}
+  {location.trim() !== "" && phase === "location" && (
+    <div className="flex items-center gap-4 relative group">
+      <p className="text-xs uppercase font-bold opacity-60">Proceed</p>
+      <div className="relative flex items-center justify-center">
+        <Link 
+          href={'/testing'} 
+          className="flex items-center justify-center w-6 h-6 border-2 border-gray-900 transform rotate-45 hover:scale-110 transition-all"
+        >
+          <MdPlayArrow className="rotate-[67.5deg] text-black text-lg z-10" />
+        </Link>
+        {/* Hover Diamond Box (Transparent) */}
+        <div className="absolute left-1/2 -translate-x-1/2 translate-y-0 hidden group-hover:block w-12 h-12 border-2 border-gray-900 transform rotate-45 bg-transparent z-0"></div>
+      </div>
+    </div>
+  )}
+</div>
 
-        .diamond-hover {
-          opacity: 0;
-          transform: rotate(45deg) scale(1.2); /* Second diamond appears slightly bigger */
-        }
 
-        .diamond-button:hover .diamond-hover {
-          opacity: 1;
-          transform: rotate(45deg) scale(1.2) translate(2px, 2px); /* Moves out slightly */
-        }
-      `}</style>
+
     </div>
   );
 };

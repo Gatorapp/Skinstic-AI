@@ -1,4 +1,4 @@
-import Button from '@/Components/Button'
+
 import Header from '@/Components/Header'
 import React from 'react'
 
@@ -11,7 +11,8 @@ function page() {
     <br></br>
     <br></br>
     <br></br>
-    <Button>test</Button>
+    <button>test</button>
+    
     </>
   )
 }

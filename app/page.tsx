@@ -10,7 +10,6 @@ import Main from "@/Components/Main";
         <>
         <Header btnOn={true} />
         <Main />
-       
         </>
       );
     }

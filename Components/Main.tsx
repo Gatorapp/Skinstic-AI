@@ -17,7 +17,7 @@ const Main = () => {
     useEffect(() => {
         if (!sophisticatedRef.current || !skincareRef.current || !discoverRef.current || !leftDiamondRef.current) return;
 
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             tl.current = gsap.timeline({ paused: true })
                 .fromTo(
                     sophisticatedRef.current,

@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ btnOn }) => {
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     const [isSadPopupVisible, setIsSadPopupVisible] = useState(false);
 
-    /* Header Link Animation */
+    
     useEffect(() => {
         gsap.fromTo(
             ".header__link",
@@ -22,21 +22,21 @@ const Header: React.FC<HeaderProps> = ({ btnOn }) => {
     }, []);
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault(); // Prevent navigation
-        setIsPopupVisible(true); // Show the first popup
+        e.preventDefault(); 
+        setIsPopupVisible(true); 
     };
 
     const handleLeave = () => {
-        setIsPopupVisible(false); // Close the first popup
-        setIsSadPopupVisible(true); // Show the sad popup
+        setIsPopupVisible(false); 
+        setIsSadPopupVisible(true); 
     };
 
     const handleStay = () => {
-        setIsPopupVisible(false); // Close the first popup
+        setIsPopupVisible(false); 
     };
 
     const handleChangedMind = () => {
-        setIsSadPopupVisible(false); // Close the sad popup
+        setIsSadPopupVisible(false); 
     };
 
     return (
@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ btnOn }) => {
                 )}
             </header>
 
-            {/* First POPUP MODAL */}
+            
             {isPopupVisible && (
                 <div className="fixed top-[48px] left-[47px] w-[401px] h-auto bg-[#050000] shadow-lg border border-gray-400 p-6 text-white z-50">
                     <p className="uppercase font-[Roobert TRIAL] font-semibold text-[16px] leading-[24px] tracking-[0%]">
@@ -91,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ btnOn }) => {
                 </div>
             )}
 
-            {/* Sad POPUP MODAL */}
+            
             {isSadPopupVisible && (
                 <div className="fixed top-[48px] left-[32px] w-[401px] h-[24] bg-[#080000] shadow-lg border border-gray-400 p-6 text-white z-50">
                     <p className="uppercase font-[Roobert TRIAL] font-semibold text-[16px] leading-[24px] tracking-[0%]">

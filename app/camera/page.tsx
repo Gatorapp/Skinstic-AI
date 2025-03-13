@@ -2,7 +2,7 @@ import React from 'react'
 
 function page() {
   return (
-    <div>testing page</div>
+    <div>Camera and unpload pic page</div>
   )
 }
 

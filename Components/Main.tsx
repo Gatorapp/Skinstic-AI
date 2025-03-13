@@ -143,7 +143,7 @@ const Main = () => {
                         </span>
                     </h1>
 
-                    <footer className="absolute bottom-0 uppercase w-[316px] h-[72px] top-[775px] left-[32px] 
+                    <footer className="footer absolute bottom-0 uppercase w-[316px] h-[72px] top-[775px] left-[32px] 
                  text-gray font-[Roobert] text-[14px] 
                  leading-[24px] tracking-[0%] font-normal p-4">
                         Skinstric developed an A.I. that creates a highly-personalized routine
@@ -153,10 +153,10 @@ const Main = () => {
                     {/* Mobile button */}
                     <div className="flex items-center justify-center gap-4 lg:hidden">
                         <p className="text-[10px] uppercase font-bold">Enter Experience</p>
-                        <div className="relative flex items-center justify-center w-[25px] h-[25px]">
+                        <div className="relative flex items-center justify-center w-[25px] h-[25px] ">
                             <div className="absolute inset-0 transform rotate-45 border-2 border-[#a0a4ab] pointer-events-none"></div>
                             <figure className="relative z-10">
-                                <MdPlayArrow className="" />
+                                <MdPlayArrow className="intro" />
                             </figure>
                         </div>
                     </div>
